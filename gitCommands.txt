@@ -1,4 +1,4 @@
-// gitCommands.txt
+// GitCommands.txt
 
 <!-- Para Subir las Modificaciones en Git -->
 

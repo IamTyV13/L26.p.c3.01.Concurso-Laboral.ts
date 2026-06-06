@@ -1,0 +1,2 @@
+/*hay que colocar aca el arreglo de los aspirantes
+y para cada dato a reportar igual un arreglo para ver cada metodo*/
