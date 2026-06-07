@@ -71,13 +71,14 @@ export default class Cl_sMockApi {
     return { ok: true, tabla: respuesta.data ?? [] };
   }
 
+  // ✅ ACEPTA number | string para ser compatible con cédulas number o string
   static async existeId({
     tabla,
     tablaId,
     tablaIdName,
   }: {
     tabla: string;
-    tablaId: number;
+    tablaId: number | string;
     tablaIdName: string;
   }): Promise<{ ok: boolean; existe: boolean }> {
     const uri = `${this.apiUrl}?tabla=${tabla}&${tablaIdName}=${tablaId}`;
@@ -121,13 +122,14 @@ export default class Cl_sMockApi {
     };
   }
 
+  // ✅ ACEPTA number | string
   private static async obtenerIdMockApi({
     tabla,
     tablaId,
     tablaIdName,
   }: {
     tabla: string;
-    tablaId: number;
+    tablaId: number | string;
     tablaIdName: string;
   }): Promise<string | undefined> {
     const uri = `${this.apiUrl}?tabla=${tabla}&${tablaIdName}=${tablaId}`;
@@ -141,16 +143,18 @@ export default class Cl_sMockApi {
       }
 
       // Filtrar EXACTAMENTE por el valor de tablaId para evitar coincidencias parciales
+      // Usamos == para comparar number con string correctamente
       const registroExacto = respuesta.data.find(
-        (item: any) => item[tablaIdName] === tablaId
+        (item: any) => item[tablaIdName] == tablaId
       );
 
       return registroExacto?.id;
     });
   }
 
+  // ✅ ACEPTA number | string
   static async modificar(
-    tablaId: number,
+    tablaId: number | string,
     registro: any,
     tablaIdName: string,
   ): Promise<{ ok: boolean; mensaje: string }> {
@@ -181,8 +185,9 @@ export default class Cl_sMockApi {
     return { ok: true, mensaje: "Registro modificado" };
   }
 
+  // ✅ ACEPTA number | string
   static async eliminar(
-    tablaId: number,
+    tablaId: number | string,
     tabla: string,
     tablaIdName: string,
   ): Promise<{ ok: boolean; mensaje: string }> {

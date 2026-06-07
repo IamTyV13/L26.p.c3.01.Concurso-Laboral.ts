@@ -52,7 +52,7 @@ export default class Cl_vAspirante implements I_vAspirante {
             const puntajes: number[] = [];
             
             for (let b = 1; b < 5; b++) {
-                const input = document.getElementById(`inPregunta${b}`) as HTMLInputElement;
+                const input = document.getElementById(`aspirante_inPregunta${b}`) as HTMLInputElement;
                 
                 if (input) {
                     const valor = parseFloat(input.value);
@@ -76,7 +76,7 @@ export default class Cl_vAspirante implements I_vAspirante {
             const puntajes: number[] = [];
             
             for (let b = 5; b < 12; b++) {
-                const input = document.getElementById(`inPregunta${b}`) as HTMLInputElement;
+                const input = document.getElementById(`aspirante_inPregunta${b}`) as HTMLInputElement;
                 
                 if (input) {
                     const valor = parseFloat(input.value);
@@ -100,7 +100,7 @@ export default class Cl_vAspirante implements I_vAspirante {
             const puntajes: number[] = [];
             
             for (let b = 12; b < 21; b++) {
-                const input = document.getElementById(`inPregunta${b}`) as HTMLInputElement;
+                const input = document.getElementById(`aspirante_inPregunta${b}`) as HTMLInputElement;
                 
                 if (input) {
                     const valor = parseFloat(input.value);
@@ -124,7 +124,7 @@ export default class Cl_vAspirante implements I_vAspirante {
             const puntajes: number[] = [];
             
             for (let b = 21; b < 29; b++) {
-                const input = document.getElementById(`inPregunta${b}`) as HTMLInputElement;
+                const input = document.getElementById(`aspirante_inPregunta${b}`) as HTMLInputElement;
                 
                 if (input) {
                     const valor = parseFloat(input.value);

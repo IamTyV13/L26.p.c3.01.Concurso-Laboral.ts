@@ -3,6 +3,7 @@
 export default class Cl_mAspirante {
 
     // Atributos del Aspirante
+        private tabla: string = "aspirante";
         private _nombre: string = "";
         private _cedula: string = "";
         private _notaExamenEscrito: number = 0;
@@ -174,5 +175,24 @@ export default class Cl_mAspirante {
 
             return c10Porcent + c60Porcent + c30Porcent;
         }
+    
+/*  
+     Convierte el objeto Cl_mAspirante a un JSON plano, para poder enviarlo a MockAPI 
+    a través del service. Solo incluye los campos que queremos guardar en la base de datos.
+*/
+    toJSON() {
+        return {
+            tabla: this.tabla,
+            nombre: this.nombre,
+            cedula: this.cedula,
+            formatoCO5: this.sumaPtsFormatoCO5(),
+            formatoCO51: this.sumaPtsFormatoCO51(),
+            formatoCO52: this.sumaPtsFormatoCO52(),
+            formatoCO53: this.sumaPtsFormatoCO53(),
+            totalObtenido: this.totalObtenido(),
+            calificacionFinal: this.calificacionFinal()
+        };
+    }
+
     
 }
