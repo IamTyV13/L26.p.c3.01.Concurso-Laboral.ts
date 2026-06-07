@@ -14,16 +14,13 @@ export default class Cl_mAspirante {
         private ptsFormatoCO51: number[] = [];
         private ptsFormatoCO52: number[] = [];
         private ptsFormatoCO53: number[] = [];
-        
+    
+    // Arrays de los Jurados para la Tabla CO10
         private juradoACO10: number[] = [];
         private juradoBCO10: number[] = [];
         private juradoCCO10: number[] = [];
 
-        // trabajar los 31 atributos : respuestaForm5.1 y asì para todos
-
-    /* Nota: declaramos los arrays con any, ya que hay convinaciones de 
-    preguntas de distintos tipos, lo cual no nos permite definir un tipo 
-    específico para cada array. */
+    // trabajar los 31 atributos : respuestaForm5.1 y asì para todos o arrays 4 para ser preciso.
 
     constructor ({nombre, cedula, notaExamenEscrito, notaExamenPractico, notaExamenAptitudes}: 
         {nombre: string, cedula: string, notaExamenEscrito: number, notaExamenPractico: number, notaExamenAptitudes: number} = 
@@ -82,43 +79,49 @@ export default class Cl_mAspirante {
         }
         
     // Metodos para sumar los puntos de cada Seccion en especifico.
-        sumaPtsFomatoCO5(): number{
+        sumaPtsFormatoCO5(): number {
+            const tope = 35;
             let suma = 0;
-                for (let b = 0; b < this.ptsFormatoCO5.length; b++) {   
-                    suma += this.ptsFormatoCO5[b];  }
+            
+            // Sumar primero
+            for (let b = 0; b < this.ptsFormatoCO5.length; b++) {   
+                suma += this.ptsFormatoCO5[b];  }
+            
+            // Comparar después
+            if (suma > tope) {
+                return tope; }
 
             return suma;
+    }
 
-            const tope = 35;
-
-                if (suma > tope) {
-                    return tope; }
-        }
-        
-        sumaPtsFomatoCO51(): number{
+        sumaPtsFormatoCO51(): number{
+            const tope = 30;
             let suma = 0;
+
+            // Sumar primero
                 for (let b = 0; b < this.ptsFormatoCO51.length; b++) {   
                     suma += this.ptsFormatoCO51[b];  }
 
+            // Comparar después
+                if (suma > tope) {
+                    return tope; }
+
             return suma;
         }
         
-        sumaPtsFomatoCO52(): number{
+        sumaPtsFormatoCO52(): number{
             const suma = this.ptsFormatoCO52.reduce((suma, pts) => suma + pts, 0);
-                return suma;
-
-            const tope = 15;
-                if (suma > tope) {
-                    return tope; }
+                return Math.min(suma, 15); // Limitar la suma a un máximo de 15 puntos
         }
 
-        sumaPtsFomatoCO53(): number{
-            return this.ptsFormatoCO53.reduce((suma, pts) => suma + pts, 0);
+        sumaPtsFormatoCO53(): number{
+            const suma = this.ptsFormatoCO53.reduce((suma, pts) => suma + pts, 0);
+                return Math.min(suma, 20); // Limitar la suma a un máximo de 20 puntos
         }
     
     // Metodo para sumar los puntos totales de las Secciones sobre el 100 puntos.
         totalObtenido(): number{
-            return this.sumaPtsFomatoCO5() + this.sumaPtsFomatoCO51() + this.sumaPtsFomatoCO52() + this.sumaPtsFomatoCO53();
+            return this.sumaPtsFormatoCO5() + this.sumaPtsFormatoCO51() + this.sumaPtsFormatoCO52() + this.sumaPtsFormatoCO53();
         }
 
     // Metodo para calcular la Calificacion Final del Aspirante sobre 20 puntos.
