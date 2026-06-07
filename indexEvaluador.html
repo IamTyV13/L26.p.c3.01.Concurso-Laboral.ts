@@ -283,24 +283,19 @@
         </section>
 
     <!-- Importamos Los Archivos Js -->
-        <script type="module">
+          <script type="module">
 
-        // Importamos los Controladores
-            import Cl_cFundacion from "./dist/controllers/Cl_cFundacion.js";
-            import Cl_caspirante from "./dist/controllers/Cl_caspirante.js";
+            import Cl_cAspirante from "./dist/controllers/Cl_cAspirante.js";
 
-        // Importamos las Vistas Plain
-            import Cl_vFundacionPlain from "./dist/views/Cl_vFundacionPlain.js";
-            import Cl_vaspirantePlain from "./dist/views/Cl_vaspirantePlain.js";
+            // Importamos SOLO las vistas planas
+                import Cl_vAspirante from "./dist/views/Cl_vAspirante.js";
 
-        // Instanciamos Las Vistas
-            const vistaFundacion = new Cl_vFundacionPlain();
-            const vistaaspirante = new Cl_vaspirantePlain();
+            // 1. Instanciamos las vistas
+                const vistaAspirante = new Cl_vAspirante();
 
-        // Inyectamos Las Vistas a los Controladores
-            const controladoraspirante = new Cl_caspirante(vistaaspirante);
-                new Cl_cFundacion(vistaFundacion, controladoraspirante);
-        
+            // 2. Inyectamos las vistas en los controladores.
+                new Cl_cAspirante(vistaAspirante);
+
         </script>
 
 </body>
