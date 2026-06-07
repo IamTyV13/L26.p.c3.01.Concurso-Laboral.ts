@@ -88,6 +88,11 @@ export default class Cl_mAspirante {
                     suma += this.ptsFormatoCO5[b];  }
 
             return suma;
+
+            const tope = 35;
+
+                if (suma > tope) {
+                    return tope; }
         }
         
         sumaPtsFomatoCO51(): number{
@@ -99,7 +104,12 @@ export default class Cl_mAspirante {
         }
         
         sumaPtsFomatoCO52(): number{
-            return this.ptsFormatoCO52.reduce((suma, pts) => suma + pts, 0);
+            const suma = this.ptsFormatoCO52.reduce((suma, pts) => suma + pts, 0);
+                return suma;
+
+            const tope = 15;
+                if (suma > tope) {
+                    return tope; }
         }
 
         sumaPtsFomatoCO53(): number{
