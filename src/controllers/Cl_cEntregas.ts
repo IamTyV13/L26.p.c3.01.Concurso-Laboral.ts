@@ -31,10 +31,11 @@ export default class Cl_cEntregas {
 
     async btRecargarOnClick() {
         let resultado = await Cl_sEntregas.getEntregas();
-        if (resultado.ok === false) {
-        alert("Error: No se pudo conectar con el servidor");
-        return;
+            if (resultado.ok === false) {
+                alert("Error: No se pudo conectar con el servidor");
+                    return;
         }
+        
         this.modelo.setAspirantes(resultado.tabla);
         this.vista.mostrarAspirantes(this.modelo.getAspirantes());
     }

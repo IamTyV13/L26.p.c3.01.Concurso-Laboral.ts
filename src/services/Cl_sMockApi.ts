@@ -57,7 +57,8 @@ export default class Cl_sMockApi {
     ok: boolean;
     tabla: any[];
   }> {
-    const uri = `${this.apiUrl}?tabla=${tabla}`;
+    // MockAPI real no soporta ?tabla=; endpoint ya apunta al recurso correcto
+    const uri = this.apiUrl;
     const respuesta = await this.fetchMockApi({ method: "GET", uri });
 
     if (respuesta.status === 404) {

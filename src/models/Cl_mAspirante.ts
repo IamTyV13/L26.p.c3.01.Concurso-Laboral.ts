@@ -129,6 +129,22 @@ export default class Cl_mAspirante {
         calificacionFinal(): number{
             return this.totalObtenido() / 5;    }
 
+    // Metodo para cargar las sumas guardadas desde MockAPI (cuando los arrays vienen vacíos)
+        cargarSumasGuardadas(sumas: { formatoCO5: number; formatoCO51: number; formatoCO52: number; formatoCO53: number }): void {
+            if (this.ptsFormatoCO5.length === 0 && sumas.formatoCO5 > 0) {
+                this.ptsFormatoCO5.push(sumas.formatoCO5);
+            }
+            if (this.ptsFormatoCO51.length === 0 && sumas.formatoCO51 > 0) {
+                this.ptsFormatoCO51.push(sumas.formatoCO51);
+            }
+            if (this.ptsFormatoCO52.length === 0 && sumas.formatoCO52 > 0) {
+                this.ptsFormatoCO52.push(sumas.formatoCO52);
+            }
+            if (this.ptsFormatoCO53.length === 0 && sumas.formatoCO53 > 0) {
+                this.ptsFormatoCO53.push(sumas.formatoCO53);
+            }
+        }
+
         /* ===Tabla CO7=== */
 
     // Metodos para calcular las Calificaciones de la Tabla CO7 sobre el 10%.

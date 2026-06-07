@@ -2,14 +2,14 @@ import I_vEntregas from "../interfaces/I_vEntregas.js";
 import Cl_mAspirante from "../models/Cl_mAspirante.js";
 
 export default class Cl_vEntregas implements I_vEntregas {
-    ui: HTMLDivElement;
-    btRecargar: HTMLButtonElement;
-    btVolver: HTMLButtonElement;
-    tblRegistros: HTMLTableElement;
+    private ui: HTMLDivElement;
+    private btRecargar: HTMLButtonElement;
+    private btVolver: HTMLButtonElement;
+    private tblRegistros: HTMLTableElement;
 
     constructor() {
         this.ui = document.getElementById("entregas") as HTMLDivElement;
-        this.tblRegistros = document.getElementById("entregas_tblRegistros",) as HTMLTableElement;
+        this.tblRegistros = document.getElementById("entregas_tblRegistros") as HTMLTableElement;
         this.btRecargar = document.getElementById("entregas_btRecargar") as HTMLButtonElement;
         this.btVolver = document.getElementById("entregas_btVolver") as HTMLButtonElement;
     }
