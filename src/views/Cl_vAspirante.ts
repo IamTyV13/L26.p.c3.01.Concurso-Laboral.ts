@@ -165,4 +165,21 @@ export default class Cl_vAspirante implements I_vAspirante {
             if (this.vista === null) return;
                 this.vista.hidden = true;
         }
+
+        mostrarConfirmacion(): void {
+            if (this.vista === null) return;
+
+            // Oculta el formulario y muestra un mensaje de éxito
+                this.vista.innerHTML = `
+                    <div style="text-align:center; padding:40px;">
+
+                        <h2 style="color:green;">¡Aspirante procesado correctamente!</h2>
+
+                        <p>Aquí puede registrar otro aspirante.</p>
+
+                        <button onclick="location.href='indexEvaluador.html'" style="padding:10px 20px; font-size:16px;">
+                            Procesar otro aspirante
+                        </button>
+                    </div>`;
+        }
 }

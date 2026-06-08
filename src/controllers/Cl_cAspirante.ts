@@ -43,5 +43,9 @@ export default class Cl_cAspirante {
         // 3. Guardar en MockAPI
             const resultado = await sAspirante.agregar(aspirante);
                 alert(resultado.mensaje);
+
+            if (resultado.ok) {
+                this.vista.mostrarConfirmacion();
+            }
         }
 }

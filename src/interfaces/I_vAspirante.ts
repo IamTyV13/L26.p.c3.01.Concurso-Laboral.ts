@@ -18,6 +18,9 @@ export interface I_vAspirante {
         puntajeCO52(): number[];
         puntajeCO53(): number[];
 
+    // Confirmación post-envío
+        mostrarConfirmacion(): void;
+
     // Botones de Enviar y Cancelar
         onEnviar(callback: () => void): void;
         onCancelar(callback: () => void): void;
