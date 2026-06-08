@@ -29,6 +29,9 @@ export default class Cl_vAspirante implements I_vAspirante {
         this.btnCancelar = document.getElementById("aspirante_btnCancelar") as HTMLButtonElement;
         this.vista = document.getElementById("aspirante");
 
+        //Metodo Para Validar Min and Max
+            this.aplicarValidaciones();
+
     }
 
     // Getters de los Atributos
@@ -166,6 +169,7 @@ export default class Cl_vAspirante implements I_vAspirante {
                 this.vista.hidden = true;
         }
 
+    // Metodo Para Procesar otro Aspirante
         mostrarConfirmacion(): void {
             if (this.vista === null) return;
 
@@ -182,4 +186,36 @@ export default class Cl_vAspirante implements I_vAspirante {
                         </button>
                     </div>`;
         }
+
+    // Metodo para Validar el valor máximo y mínimo que se puede agregar a la pregunta
+        private aplicarValidaciones(): void {
+            for (let i = 1; i <= 28; i++) {
+                const input = document.getElementById(`aspirante_inPregunta${i}`) as HTMLInputElement;
+                
+                if (input) {
+                    const max = parseInt(input.max);
+                    const min = parseInt(input.min);
+                    
+                    input.addEventListener("input", () => {
+                        let valor = parseInt(input.value);
+                        
+                        if (isNaN(valor)) {
+                            input.value = "";
+                            return;
+                        }
+                        
+                        if (valor > max) {
+                            input.value = max.toString();
+                            alert(`El valor máximo es ${max}`);
+                        }
+                        
+                        if (valor < min) {
+                            input.value = min.toString();
+                            alert(`El valor mínimo es ${min}`);
+                        }
+                    });
+                }
+            }
+        }
+
 }
